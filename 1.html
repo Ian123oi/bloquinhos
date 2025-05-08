@@ -53,6 +53,11 @@ ctx.fillRect(20, 20, 100, 100);
             
             var X = 20;
             var Y = 20;
+
+            function anima () {
+                ctx.clearRect(0,0,500,500);
+                ctx.fillRect(X, Y, 100, 100);
+            }
             $(document).on("keydown", function(e) {
 
                 if (X < 0) {
@@ -66,29 +71,25 @@ ctx.fillRect(20, 20, 100, 100);
                 } if (Y > 400) {
                     Y = Y - 3;
                 }
+        
 
                 if(e.key == "ArrowDown") {
                     Y = Y + 3;
-                    ctx.clearRect(0,0,500,500);
-                    ctx.fillRect(X, Y, 100, 100 );
+                    anima();
                     
                     
                     
                      }
                      else if(e.key == "ArrowUp") {
-                    ctx.clearRect(0,0,500,500);
-
                     Y = Y - 3;
-                    ctx.fillRect(X, Y, 100, 100 );
+                    anima();
                      } else if (e.key == "ArrowLeft") {
-                        ctx.clearRect(0,0,500,500);
                         X = X - 3;
-                        ctx.fillRect(X,Y, 100, 100);
+                        anima();
                      }
                       else if (e.key == "ArrowRight") {
-                        ctx.clearRect(0,0,500,500);
                         X = X + 3;
-                        ctx.fillRect(X,Y, 100, 100);
+                        anima();
                      }
                     
             });
