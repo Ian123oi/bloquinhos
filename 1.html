@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+            <script src="https://code.jquery.com/jquery-3.7.1.js"> </script>
+</head>
+<body>
+<button id="aumenta"> Aumenta </button> 
+        <button id="diminui"> diminui </button> 
+    <canvas width="500" height="500" id="quadro">
+        
+
+        <script> 
+            var canvas = $("#quadro") [0];
+            var ctx = canvas.getContext("2d");
+  ctx.shadowColor = "black";
+ctx.shadowOffsetX = 30;
+ctx.shadowOffsetY = 30;
+ctx.shadowBlur = 8;
+ctx.fillStyle = "blue";
+ctx.fillRect(20, 20, 100, 100);
+
+            
+
+          
+
+// Filled rectangle
+
+        </script>
+
+    </canvas>
+    <script>
+            document.getElementById("aumenta").onclick = function() {
+                
+                ctx.shadowOffsetX =  ctx.shadowOffsetX + 5;
+                ctx.shadowOffsetY = ctx.shadowOffsetY + 5;   
+                ctx.clearRect(0,0,500,500);
+                ctx.fillRect(20,20, 100, 100);            
+            }
+            document.getElementById("diminui").onclick = function() {
+                ctx.shadowOffsetX = ctx.shadowOffsetX - 5;
+                ctx.shadowOffsetY = ctx.shadowOffsetY - 5;
+                ctx.clearRect(0,0,500,500);
+                ctx.fillRect(20,20, 100, 100);
+            } 
+            
+            var X = 20;
+            var Y = 20;
+            $(document).on("keydown", function(e) {
+
+                if (X < 0) {
+                    X = X + 3
+                }
+                if (Y < 0) {
+                    Y = Y + 3
+                }
+                if (X > 400) {
+                    X = X - 3;
+                } if (Y > 400) {
+                    Y = Y - 3;
+                }
+
+                if(e.key == "ArrowDown") {
+                    Y = Y + 3;
+                    ctx.clearRect(0,0,500,500);
+                    ctx.fillRect(X, Y, 100, 100 );
+                    
+                    
+                    
+                     }
+                     else if(e.key == "ArrowUp") {
+                    ctx.clearRect(0,0,500,500);
+
+                    Y = Y - 3;
+                    ctx.fillRect(X, Y, 100, 100 );
+                     } else if (e.key == "ArrowLeft") {
+                        ctx.clearRect(0,0,500,500);
+                        X = X - 3;
+                        ctx.fillRect(X,Y, 100, 100);
+                     }
+                      else if (e.key == "ArrowRight") {
+                        ctx.clearRect(0,0,500,500);
+                        X = X + 3;
+                        ctx.fillRect(X,Y, 100, 100);
+                     }
+                    
+            });
+
+            
+            </script>
+            
+        
+</body>
+</html>
